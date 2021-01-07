@@ -1,0 +1,17 @@
+{
+  "name": "backend_app_medicamentos",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "form-data": "^3.0.0",
+    "mongoose": "^5.11.10",
+    "require-dir": "^1.2.0"
+  },
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.7"
+  }
+}
