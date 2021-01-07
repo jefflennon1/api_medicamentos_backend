@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+const mongoosePaginate = require('mongoose-paginate');
+
+
 const MedicamentoSchema = new mongoose.Schema({
   ID_PRODUTO: {
     type: Number,
@@ -203,5 +206,7 @@ const MedicamentoSchema = new mongoose.Schema({
   }
 
 })
+MedicamentoSchema.plugin(mongoosePaginate);
+
 
 mongoose.model('Medicamento', MedicamentoSchema);

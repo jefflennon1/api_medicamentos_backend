@@ -4,6 +4,7 @@ const MedicamentoModel = require('./controller/MedicamentoController');
 
 routes.get('/medicamentos/all', MedicamentoModel.index);
 routes.post('/medicamentos', MedicamentoModel.create);
+routes.get('/medicamento/composicao',MedicamentoModel.findByComp )
 
 
 
