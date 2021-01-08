@@ -9,11 +9,21 @@ module.exports = {
   async create(req, res){
     const medicamento = await MedicamentoModel.create(req.body);
     return res.json(medicamento)
-  },
+  },                                                                                                 
 
   async findByComp(req, res){
     const { COMPOSICAO, NOME } = req.query;
-    const response = await MedicamentoModel.find({'COMPOSICAO':  {$regex: COMPOSICAO || NOME, $options: 'i'} });
-    return res.json(response)
+    const tipo = COMPOSICAO != null ? 'COMPOSICAO' : 'NOME';
+    var response = ''; 
+      if(tipo == 'COMPOSICAO'){
+          response = await MedicamentoModel.find({'COMPOSICAO':  {$regex: COMPOSICAO , $options: 'i'} });
+      }else{      
+           response = await MedicamentoModel.find({'NOME':  {$regex: NOME , $options: 'i'} });
+      }
+
+    return res.json(response);
   }
+
+  
 }
+
