@@ -12,8 +12,8 @@ module.exports = {
   },
 
   async findByComp(req, res){
-    const { COMPOSICAO } = req.query;
-    const response = await MedicamentoModel.find({'COMPOSICAO':  {$regex: COMPOSICAO, $options: 'i'} });
+    const { COMPOSICAO, NOME } = req.query;
+    const response = await MedicamentoModel.find({'COMPOSICAO':  {$regex: COMPOSICAO || NOME, $options: 'i'} });
     return res.json(response)
   }
 }
